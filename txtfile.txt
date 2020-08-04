@@ -1,0 +1,19 @@
+   List<short[]> DivideEqually(short[] Data, int NumberOfArrays)
+        {
+            if ((NumberOfArrays < 1) || (Data == null) || (Data.Length < 2)) return null;
+            List<short[]> List = new List<short[]>(NumberOfArrays);
+            int ArrayLength = (Data.Length/NumberOfArrays);
+            int DataOffset = 0;
+
+            for (int ArrayIndex = 0; ArrayIndex < NumberOfArrays; ArrayIndex++)
+            {
+                List.Add(new short[ArrayLength]);
+                for (int SampleIndex = 0; SampleIndex < ArrayLength; SampleIndex++)
+                {
+                    List[ArrayIndex][SampleIndex] = Data[DataOffset + SampleIndex];
+                }
+                DataOffset += ArrayLength;
+                
+            }
+            return List;
+        }
